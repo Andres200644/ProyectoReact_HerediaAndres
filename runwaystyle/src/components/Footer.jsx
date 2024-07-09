@@ -1,6 +1,6 @@
 const Footer = () => {
     return (
-        <div className="container-fluid bg-black">
+        <div className="container-fluid bg-black" >
             <div className="row">
                 <div className="col text-end text-white ">
                     <p>© 2024 runwaystyle, Inc. Todos los derechos reservados</p>
