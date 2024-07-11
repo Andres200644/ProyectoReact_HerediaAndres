@@ -34,14 +34,11 @@
 .product-card-detail {
   padding: 16px;
   text-align: center;
+  color: black;
 }
 
 .product-detail img {
   width:  20%;
   height: auto;
   justify-content: center;
-}
-
-.Footer{
- background-color: black;
 }
