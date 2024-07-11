@@ -68,7 +68,7 @@ const products = [
     name: 'AirForce 1 ',
     category: 'zapatillas',
     price: 1.749,
-    description: 'Estos joggers están confeccionados con una suave tela French Terry para ofrecer una calidez ligera..',
+    description: 'Calzado para hombre..',
     imageUrl: '../../src/assets/product_images/AirForce 1.png'
   },
   {
