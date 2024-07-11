@@ -66,7 +66,7 @@ const products = [
   {
     id: 9,
     name: 'AirForce 1 ',
-    category: 'zapatillas',
+    category: 'calzado',
     price: 1.749,
     description: 'Calzado para hombre..',
     imageUrl: '../../src/assets/product_images/AirForce 1.png'
@@ -74,7 +74,7 @@ const products = [
   {
     id: 10,
     name: 'Air Jordan 1 Mid ',
-    category: 'zapatillas',
+    category: 'calzado',
     price: 3.200,
     description: 'Calzado para hombre..',
     imageUrl: '../../src/assets/product_images/jordan mid.png'
@@ -82,7 +82,7 @@ const products = [
   {
     id: 11,
     name: 'Air Jordan 1 Retro High OG ',
-    category: 'zapatillas',
+    category: 'calzado',
     price: 4.200,
     description: 'Calzado para hombre..',
     imageUrl: '../../src/assets/product_images/jordan retro.png'
@@ -90,7 +90,7 @@ const products = [
   {
     id: 12,
     name: 'Air Jordan 1 Low SE craft ',
-    category: 'zapatillas',
+    category: 'calzado',
     price: 2.299,
     description: 'Calzado para hombre..',
     imageUrl: '../../src/assets/product_images/craft.png'

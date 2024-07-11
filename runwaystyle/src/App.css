@@ -1,0 +1,84 @@
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 2rem;
+    justify-content: center;
+  }
+  
+  .product-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 16px;
+    padding: 16px;
+    width: 300px;
+    background-color: #fff;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .product-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+  }
+  
+  .product-card img {
+    width: 100%; /* Ajuste para que la imagen ocupe todo el ancho de la tarjeta */
+    height: auto;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .product-card-detail {
+    padding: 16px;
+    color: #333; /* Color de texto más oscuro para mejor legibilidad */
+  }
+  
+  .product-card-detail h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .product-card-detail p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .product-card-detail .price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #b12704; /* Color característico de Amazon */
+  }
+  
+  .product-card-detail .rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .product-card-detail .rating img {
+    width: 20px;
+    height: auto;
+    margin-right: 0.25rem;
+  }
+  
+  .product-card-detail .button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ffa41c; /* Color de los botones en Amazon */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .product-card-detail .button:hover {
+    background-color: #e89400;
+  }
+  

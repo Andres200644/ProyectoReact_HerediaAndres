@@ -16,7 +16,7 @@ function NavBar() {
       <div className="navbar-links">
         <Link to="/category/camisetas">Camisetas</Link>
         <Link to="/category/pantalones">Pantalones</Link>
-        <Link to="/category/zapatillas">Zapatillas</Link>
+        <Link to="/category/calzado">Calzado</Link>
       </div>
       <div className="navbar-cart">
         <Link to="/cart"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
