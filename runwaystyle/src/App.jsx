@@ -1,26 +1,42 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer';
-import Footer from './components/Footer';
 import ItemDetailContainer from './components/ItemDetailContainer';
-import { CartProvider } from './components/context/CartContext';
-import './components/styles.css';
+import Cart from './components/Cart';
+import Footer from './components/Footer';
+import './App.css';
 
 function App() {
-  return (
-    <CartProvider>
-      <Router>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<ItemListContainer />} />
-          <Route path="/category/:categoryId" element={<ItemListContainer />} />
-          <Route path="/item/:id" element={<ItemDetailContainer />} />
-        </Routes>
-      </Router>
-      <Footer />
-    </CartProvider>
+  const [cart, setCart] = useState([]);
 
+  const addToCart = (item) => {
+    setCart([...cart, item]);
+  };
+
+  const removeFromCart = (id) => {
+    setCart(cart.filter(item => item.id !== id));
+  };
+
+  return (
+    <div className="app">
+      <NavBar cart={cart} />
+      <Switch>
+        <Route path="/" exact>
+          <ItemListContainer addToCart={addToCart} />
+        </Route>
+        <Route path="/category/:categoryId">
+          <ItemListContainer addToCart={addToCart} />
+        </Route>
+        <Route path="/item/:id">
+          <ItemDetailContainer addToCart={addToCart} />
+        </Route>
+        <Route path="/cart">
+          <Cart cart={cart} removeFromCart={removeFromCart} />
+        </Route>
+      </Switch>
+      <Footer />
+    </div>
   );
 }
 
