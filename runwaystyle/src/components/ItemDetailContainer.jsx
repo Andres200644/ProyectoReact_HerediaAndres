@@ -1,26 +1,25 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import products from '../data/products';
+import productsData from '../data/products.json';
 
-function ItemDetailContainer({ addToCart }) {
+const ItemDetailContainer = () => {
   const { id } = useParams();
-  const product = products.find((p) => p.id === parseInt(id));
-
-  if (!product) {
-    return <div>Producto no encontrado</div>;
-  }
+  const product = productsData.find(p => p.id === parseInt(id));
 
   return (
     <div className="item-detail-container">
-      <img src={product.image} alt={product.name} />
-      <div className="item-detail-content">
-        <h3>{product.name}</h3>
-        <p>{product.description}</p>
-        <p>${product.price}</p>
-        <button onClick={() => addToCart(product)}>Agregar al carrito</button>
-      </div>
+      {product ? (
+        <>
+          <img src={product.image} alt={product.name} />
+          <h1>{product.name}</h1>
+          <p>{product.description}</p>
+          <p>{product.price}</p>
+        </>
+      ) : (
+        <p>Product not found</p>
+      )}
     </div>
   );
-}
+};
 
 export default ItemDetailContainer;

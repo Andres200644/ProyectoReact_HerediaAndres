@@ -1,22 +1,32 @@
-import React from 'react';
-import products from '../data/products';
+import React, { useEffect, useState } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import productsData from '../data/products.json';
 
-function ItemListContainer({ addToCart }) {
+const ItemListContainer = () => {
+  const { categoryId } = useParams();
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    if (categoryId) {
+      setProducts(productsData.filter(product => product.categoryId === parseInt(categoryId)));
+    } else {
+      setProducts(productsData);
+    }
+  }, [categoryId]);
+
   return (
     <div className="item-list-container">
-      {products.map((product) => (
-        <div className="card" key={product.id}>
-          <img src={product.image} alt={product.name} />
-          <div className="card-content">
-            <h3>{product.name}</h3>
-            <p>{product.description}</p>
-            <p>${product.price}</p>
-            <button onClick={() => addToCart(product)}>Agregar al carrito</button>
-          </div>
+      {products.map(product => (
+        <div key={product.id}>
+          <Link to={`/item/${product.id}`}>
+            <img src={product.image} alt={product.name} />
+            <h2>{product.name}</h2>
+            <p>{product.price}</p>
+          </Link>
         </div>
       ))}
     </div>
   );
-}
+};
 
 export default ItemListContainer;

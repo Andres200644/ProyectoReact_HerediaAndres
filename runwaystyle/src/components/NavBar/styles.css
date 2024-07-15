@@ -1,46 +1,23 @@
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #111;
-    color: #fff;
-  }
-  
-  .navbar-brand img {
-    height: 40px;
-  }
-  
-  .navbar-links a {
-    margin: 0 10px;
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
-  }
-  
-  .navbar-cart {
-    position: relative;
-  }
-  
-  .navbar-cart a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
-  }
-  
-  .navbar-cart svg {
-    margin-right: 5px;
-  }
-  
-  .navbar-cart::after {
-    content: attr(data-count);
-    position: absolute;
-    top: 0;
-    right: -10px;
-    background-color: red;
-    color: white;
-    border-radius: 50%;
-    padding: 2px 5px;
-    font-size: 12px;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
+}
+
+.navbar .brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar .nav-links a {
+  margin: 0 1rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+.navbar .nav-links a:hover {
+  text-decoration: underline;
+}
