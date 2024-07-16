@@ -1,25 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import productsData from '../data/products.json';
+import products from '../data/products';
 
-const ItemDetailContainer = () => {
-  const { id } = useParams();
-  const product = productsData.find(p => p.id === parseInt(id));
+function ItemDetailContainer() {
+    const { id } = useParams();
+    const [product, setProduct] = useState(null);
 
-  return (
-    <div className="item-detail-container">
-      {product ? (
-        <>
-          <img src={product.image} alt={product.name} />
-          <h1>{product.name}</h1>
-          <p>{product.description}</p>
-          <p>{product.price}</p>
-        </>
-      ) : (
-        <p>Product not found</p>
-      )}
-    </div>
-  );
-};
+    useEffect(() => {
+        const foundProduct = products.find(product => product.id === parseInt(id));
+        setProduct(foundProduct);
+    }, [id]);
+
+    if (!product) {
+        return <div>Loading...</div>;
+    }
+
+    return (
+        <div className="product-detail">
+            <img src={product.imageUrl} alt={product.name} />
+            <h1>{product.name}</h1>
+            <p>{product.description}</p>
+            <p>${product.price}</p>
+            <button>Add to Cart</button>
+        </div>
+    );
+}
 
 export default ItemDetailContainer;
