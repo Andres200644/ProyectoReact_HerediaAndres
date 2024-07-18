@@ -9,6 +9,7 @@ const NavBar = () => {
             </svg></a>
             <div className="navbar-links">
                 <a href="/category/camisetas">Camisetas</a>
+                <a href="/category/ropa deportiva">Ropa Deportiva</a>
                 <a href="/category/pantalones">Pantalones</a>
                 <a href="/category/calzado">Calzado</a>
             </div>

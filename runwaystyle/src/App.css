@@ -14,31 +14,6 @@
     font-weight: bold;
 }
 
-.navbar a:hover {
-    color: #f0f0f0;
-}
-
-.navbar .navbar-brand svg,
-.navbar .navbar-cart svg {
-    fill: #111;
-}
-
-.navbar .navbar-links a:hover {
-    color: #f0f0f0;
-}
-
-.navbar .navbar-cart {
-    display: flex;
-    align-items: center;
-}
-
-/* Estilos globales y específicos para Footer y ProductCard */
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
-
 .app {
     display: flex;
     flex-direction: column;
@@ -70,10 +45,6 @@ body {
     transition: transform 0.2s;
 }
 
-.card:hover {
-    transform: scale(1.05);
-}
-
 .card img {
     max-width: 100%;
     height: auto;
@@ -92,17 +63,83 @@ body {
     margin-bottom: 10px;
 }
 
-.card .price {
+.price {
     font-size: 1.1rem;
     color: #111;
     margin-bottom: 10px;
 }
 
-.card .details-link {
-    color: #007bff;
+
+
+.details-link {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    font-size: 1em;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #0077ff;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.details-link:hover {
+    background-color: #000fe6;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.add-to-cart {
+    display: inline-block;
+    padding: 12px 24px;
+    margin-top: 20px;
+    font-size: 1em;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #00a2ff;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    justify-content: center;
+}
+
+.add-to-cart:hover {
+    background-color: #00cbe6;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* components/styles.css */
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer p {
+    margin: 0;
+    padding: 0;
+}
+
+.social-media {
+    margin-top: 10px;
+}
+
+.social-media a {
+    color: #fff;
+    margin: 0 10px;
     text-decoration: none;
 }
 
-.card .details-link:hover {
+.social-media a:hover {
     text-decoration: underline;
 }
