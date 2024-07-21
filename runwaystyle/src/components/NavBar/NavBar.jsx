@@ -1,6 +1,7 @@
 import React from 'react';
 import './styles.css';
 
+
 const NavBar = () => {
     return (
         <nav className="navbar">
@@ -20,5 +21,6 @@ const NavBar = () => {
 
     );
 };
+
 
 export default NavBar;

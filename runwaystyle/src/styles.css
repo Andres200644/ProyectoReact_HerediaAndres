@@ -123,3 +123,50 @@
 .cart button:hover {
     background-color: #e68a00;
 }
+
+.cart-widget {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: black;
+}
+
+.cart-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cart-item img {
+    width: 100px;
+    height: 100px;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.cart-total button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.cart-total button:hover {
+    background-color: grey;
+}

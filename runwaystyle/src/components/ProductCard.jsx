@@ -1,18 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import '../../src/App.css';
+import { CartContext } from '../../src/context/CarContext';
+import './App.css';
 
+const ProductCard = ({ product }) => {
+  const { addItem } = useContext(CartContext);
 
-function ProductCard({ product }) {
   return (
-    <div className="card">
-      <img src={product.imageUrl} alt={product.name} />
-      <h3>{product.name}</h3>
+    <div className="product-card">
+      <img src={product.image} alt={product.title} />
+      <h3>{product.title}</h3>
       <p>{product.description}</p>
-      <p className='price'>${product.price}</p>
-      <Link className='details-link' to={`/item/${product.id}`}>Ver Detalles</Link>
+      <p>${product.price}</p>
+      <button onClick={() => addItem(product, 1)}>Agregar al Carrito</button>
+      <Link to={`/item/${product.id}`}>Ver detalles</Link>
     </div>
   );
-}
+};
 
 export default ProductCard;
