@@ -1,32 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import products from '../data/products';
-import './styles.css';
 
-function ItemDetailContainer() {
-  const { id } = useParams();
-  const [product, setProduct] = useState(null);
+const ItemDetailContainer = () => {
+    const { id } = useParams();
+    const product = products.find(p => p.id === parseInt(id));
 
-  useEffect(() => {
-    const foundProduct = products.find(product => product.id === parseInt(id));
-    setProduct(foundProduct);
-  }, [id]);
+    if (!product) {
+        return <p>Producto no encontrado</p>;
+    }
 
-  if (!product) {
-    return <div>Loading...</div>;
-  }
-
-  return (
-    <div className="card">
-      <img src={product.imageUrl} alt={product.name} />
-      <h1>{product.name}</h1>
-      <p>{product.description}</p>
-      <p>${product.price}</p>
-      <button onClick={() => addToCart(product)} className="add-to-cart">Agregar al Carrito</button>
-    </div>
-  );
-}
-
-
+    return (
+        <div className="item-detail-container">
+            <img src={product.image} alt={product.name} className="product-image" />
+            <h2>{product.name}</h2>
+            <p>{product.description}</p>
+            <p>${product.price}</p>
+            <p>Stock: {product.stock}</p>
+        </div>
+    );
+};
 
 export default ItemDetailContainer;

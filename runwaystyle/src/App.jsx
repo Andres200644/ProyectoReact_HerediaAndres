@@ -1,26 +1,26 @@
-// src/App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
-import Cart from './components/Cart/Cart';
-import { CartProvider } from './context/CarContext';
+import Footer from './components/Footer';
+import CartProvider from './context/CartContext';
 import './App.css';
 
-const App = () => {
-  return (
-    <CartProvider>
-      <Router>
-        <NavBar />
-        <Switch>
-          <Route path="/" exact component={ItemListContainer} />
-          <Route path="/item/:id" component={ItemDetailContainer} />
-          <Route path="/cart" component={Cart} />
-        </Switch>
-      </Router>
-    </CartProvider>
-  );
-};
+function App() {
+    return (
+        <CartProvider>
+            <Router>
+                <NavBar />
+                <Switch>
+                    <Route exact path="/" component={ItemListContainer} />
+                    <Route path="/category/:id" component={ItemListContainer} />
+                    <Route path="/item/:id" component={ItemDetailContainer} />
+                </Switch>
+                <Footer />
+            </Router>
+        </CartProvider>
+    );
+}
 
 export default App;
