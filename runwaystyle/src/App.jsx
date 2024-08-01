@@ -1,26 +1,27 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import NavBar from './components/NavBar/NavBar';
-import ItemListContainer from './components/ItemListContainer';
-import ItemDetailContainer from './components/ItemDetailContainer';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import CartProvider from './context/CartContext';
-import './App.css';
+import Home from './pages/Home';
+import Category from './pages/Category';
+import ProductDetail from './pages/ProductDetail';
+import { CartProvider } from './context/CartContext';
+import './styles/styles.css';
 
-function App() {
-    return (
-        <CartProvider>
-            <Router>
-                <NavBar />
-                <Switch>
-                    <Route exact path="/" component={ItemListContainer} />
-                    <Route path="/category/:id" component={ItemListContainer} />
-                    <Route path="/item/:id" component={ItemDetailContainer} />
-                </Switch>
-                <Footer />
-            </Router>
-        </CartProvider>
-    );
-}
+const App = () => {
+  return (
+    <CartProvider>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/category/:categoryId" element={<Category />} />
+          <Route path="/item/:itemId" element={<ProductDetail />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </CartProvider>
+  );
+};
 
 export default App;

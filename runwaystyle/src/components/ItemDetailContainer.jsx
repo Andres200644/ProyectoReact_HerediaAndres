@@ -1,22 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import products from '../data/products';
+import ItemDetail from './ItemDetail';
+import { db } from '../firebase/firebaseConfig';
+import { doc, getDoc } from 'firebase/firestore';
+import '../styles/styles.css';
 
 const ItemDetailContainer = () => {
-    const { id } = useParams();
-    const product = products.find(p => p.id === parseInt(id));
+    const { itemId } = useParams();
+    const [item, setItem] = useState(null);
 
-    if (!product) {
-        return <p>Producto no encontrado</p>;
-    }
+    useEffect(() => {
+        const getItem = async () => {
+            const docRef = doc(db, 'items', itemId);
+            const docSnap = await getDoc(docRef);
+
+            if (docSnap.exists()) {
+                setItem({ id: docSnap.id, ...docSnap.data() });
+            }
+        };
+
+        getItem();
+    }, [itemId]);
 
     return (
-        <div className="item-detail-container">
-            <img src={product.image} alt={product.name} className="product-image" />
-            <h2>{product.name}</h2>
-            <p>{product.description}</p>
-            <p>${product.price}</p>
-            <p>Stock: {product.stock}</p>
+        <div className="container">
+            {item && <ItemDetail item={item} />}
         </div>
     );
 };
